@@ -1,0 +1,682 @@
+[
+  {
+    "rule_id": "INFO-SENDER_NAME",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Sender name must be known",
+    "assertion": {
+      "field": "sender_name",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-RECIPIENT_NAME",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Recipient name must be known",
+    "assertion": {
+      "field": "recipient_name",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-SENDER_COUNTRY",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Sender country must be known",
+    "assertion": {
+      "field": "sender_country",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-RECIPIENT_COUNTRY",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Recipient country must be known",
+    "assertion": {
+      "field": "recipient_country",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-AMOUNT",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Amount must be known",
+    "assertion": {
+      "field": "amount",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-CURRENCY",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Currency must be known",
+    "assertion": {
+      "field": "currency",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-PURPOSE",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Purpose must be known",
+    "assertion": {
+      "field": "purpose",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-CUSTOMER_TYPE",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Customer type must be known",
+    "assertion": {
+      "field": "customer_type",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-SENDER_KYC",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Sender kyc must be known",
+    "assertion": {
+      "field": "sender_kyc",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-RECIPIENT_VERIFIED",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Recipient verified must be known",
+    "assertion": {
+      "field": "recipient_verified",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "INFO-DOCUMENTS",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Documents must be known",
+    "assertion": {
+      "field": "documents",
+      "operator": "known",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "KYC",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Sender identity verification must be complete",
+    "assertion": {
+      "field": "sender_kyc",
+      "operator": "eq",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "RECIPIENT",
+    "policy_reference": "POLICY-VERIFY-02",
+    "description": "Recipient must be verified",
+    "assertion": {
+      "field": "recipient_verified",
+      "operator": "eq",
+      "value": true
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "CURRENCY",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Use a supported currency",
+    "assertion": {
+      "field": "currency",
+      "operator": "in",
+      "value": [
+        "INR",
+        "USD",
+        "EUR",
+        "SGD",
+        "GBP"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "CORRIDOR-SENDER_COUNTRY",
+    "policy_reference": "POLICY-COUNTRY-03",
+    "description": "Country must be supported",
+    "assertion": {
+      "field": "sender_country",
+      "operator": "in",
+      "value": [
+        "IN",
+        "SG",
+        "US",
+        "GB",
+        "DE",
+        "AU",
+        "CA",
+        "AE",
+        "JP"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "RESTRICT-SENDER_COUNTRY",
+    "policy_reference": "POLICY-COUNTRY-03",
+    "description": "Country must not be restricted",
+    "assertion": {
+      "field": "sender_country",
+      "operator": "not_in",
+      "value": [
+        "KP",
+        "IR",
+        "SY"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "CORRIDOR-RECIPIENT_COUNTRY",
+    "policy_reference": "POLICY-COUNTRY-03",
+    "description": "Country must be supported",
+    "assertion": {
+      "field": "recipient_country",
+      "operator": "in",
+      "value": [
+        "IN",
+        "SG",
+        "US",
+        "GB",
+        "DE",
+        "AU",
+        "CA",
+        "AE",
+        "JP"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "RESTRICT-RECIPIENT_COUNTRY",
+    "policy_reference": "POLICY-COUNTRY-03",
+    "description": "Country must not be restricted",
+    "assertion": {
+      "field": "recipient_country",
+      "operator": "not_in",
+      "value": [
+        "KP",
+        "IR",
+        "SY"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "PURPOSE",
+    "policy_reference": "POLICY-BUSINESS-05",
+    "description": "Payment purpose must be supported",
+    "assertion": {
+      "field": "purpose",
+      "operator": "in",
+      "value": [
+        "personal",
+        "family_support",
+        "tuition",
+        "medical",
+        "business",
+        "investment"
+      ]
+    },
+    "action": "flag"
+  },
+  {
+    "rule_id": "BUSINESS-PURPOSE",
+    "policy_reference": "POLICY-BUSINESS-05",
+    "description": "Business customers must use business purpose",
+    "assertion": {
+      "field": "purpose",
+      "operator": "eq",
+      "value": "business"
+    },
+    "action": "flag",
+    "when": {
+      "field": "customer_type",
+      "operator": "eq",
+      "value": "business"
+    }
+  },
+  {
+    "rule_id": "BUSINESS-INVOICE",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Business payments require an invoice",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "invoice"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "field": "customer_type",
+      "operator": "eq",
+      "value": "business"
+    }
+  },
+  {
+    "rule_id": "CAP-INR",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Transfer must be at most 1,000,000 INR",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 1000000
+    },
+    "action": "flag",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "INR"
+    }
+  },
+  {
+    "rule_id": "REVIEW-INR",
+    "policy_reference": "POLICY-REVIEW-06",
+    "description": "Amounts above 500,000 INR need manual review",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 500000
+    },
+    "action": "manual_review",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "INR"
+    }
+  },
+  {
+    "rule_id": "DOCS-INR",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Above 200,000 INR, provide source of funds",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "source_of_funds"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "all": [
+        {
+          "field": "currency",
+          "operator": "eq",
+          "value": "INR"
+        },
+        {
+          "field": "amount",
+          "operator": "gt",
+          "value": 200000
+        }
+      ]
+    },
+    "exception": {
+      "all": [
+        {
+          "field": "purpose",
+          "operator": "eq",
+          "value": "tuition"
+        },
+        {
+          "field": "documents",
+          "operator": "contains_all",
+          "value": [
+            "scholarship_letter",
+            "enrollment_letter"
+          ]
+        }
+      ]
+    },
+    "exception_reference": "POLICY-EXCEPTION-07"
+  },
+  {
+    "rule_id": "CAP-USD",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Transfer must be at most 15,000 USD",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 15000
+    },
+    "action": "flag",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "USD"
+    }
+  },
+  {
+    "rule_id": "REVIEW-USD",
+    "policy_reference": "POLICY-REVIEW-06",
+    "description": "Amounts above 8,000 USD need manual review",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 8000
+    },
+    "action": "manual_review",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "USD"
+    }
+  },
+  {
+    "rule_id": "DOCS-USD",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Above 3,000 USD, provide source of funds",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "source_of_funds"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "all": [
+        {
+          "field": "currency",
+          "operator": "eq",
+          "value": "USD"
+        },
+        {
+          "field": "amount",
+          "operator": "gt",
+          "value": 3000
+        }
+      ]
+    },
+    "exception": {
+      "all": [
+        {
+          "field": "purpose",
+          "operator": "eq",
+          "value": "tuition"
+        },
+        {
+          "field": "documents",
+          "operator": "contains_all",
+          "value": [
+            "scholarship_letter",
+            "enrollment_letter"
+          ]
+        }
+      ]
+    },
+    "exception_reference": "POLICY-EXCEPTION-07"
+  },
+  {
+    "rule_id": "CAP-EUR",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Transfer must be at most 12,000 EUR",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 12000
+    },
+    "action": "flag",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "EUR"
+    }
+  },
+  {
+    "rule_id": "REVIEW-EUR",
+    "policy_reference": "POLICY-REVIEW-06",
+    "description": "Amounts above 6,000 EUR need manual review",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 6000
+    },
+    "action": "manual_review",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "EUR"
+    }
+  },
+  {
+    "rule_id": "DOCS-EUR",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Above 2,500 EUR, provide source of funds",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "source_of_funds"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "all": [
+        {
+          "field": "currency",
+          "operator": "eq",
+          "value": "EUR"
+        },
+        {
+          "field": "amount",
+          "operator": "gt",
+          "value": 2500
+        }
+      ]
+    },
+    "exception": {
+      "all": [
+        {
+          "field": "purpose",
+          "operator": "eq",
+          "value": "tuition"
+        },
+        {
+          "field": "documents",
+          "operator": "contains_all",
+          "value": [
+            "scholarship_letter",
+            "enrollment_letter"
+          ]
+        }
+      ]
+    },
+    "exception_reference": "POLICY-EXCEPTION-07"
+  },
+  {
+    "rule_id": "CAP-SGD",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Transfer must be at most 20,000 SGD",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 20000
+    },
+    "action": "flag",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "SGD"
+    }
+  },
+  {
+    "rule_id": "REVIEW-SGD",
+    "policy_reference": "POLICY-REVIEW-06",
+    "description": "Amounts above 10,000 SGD need manual review",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 10000
+    },
+    "action": "manual_review",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "SGD"
+    }
+  },
+  {
+    "rule_id": "DOCS-SGD",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Above 4,000 SGD, provide source of funds",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "source_of_funds"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "all": [
+        {
+          "field": "currency",
+          "operator": "eq",
+          "value": "SGD"
+        },
+        {
+          "field": "amount",
+          "operator": "gt",
+          "value": 4000
+        }
+      ]
+    },
+    "exception": {
+      "all": [
+        {
+          "field": "purpose",
+          "operator": "eq",
+          "value": "tuition"
+        },
+        {
+          "field": "documents",
+          "operator": "contains_all",
+          "value": [
+            "scholarship_letter",
+            "enrollment_letter"
+          ]
+        }
+      ]
+    },
+    "exception_reference": "POLICY-EXCEPTION-07"
+  },
+  {
+    "rule_id": "CAP-GBP",
+    "policy_reference": "POLICY-TRANSFER-01",
+    "description": "Transfer must be at most 10,000 GBP",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 10000
+    },
+    "action": "flag",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "GBP"
+    }
+  },
+  {
+    "rule_id": "REVIEW-GBP",
+    "policy_reference": "POLICY-REVIEW-06",
+    "description": "Amounts above 5,000 GBP need manual review",
+    "assertion": {
+      "field": "amount",
+      "operator": "lte",
+      "value": 5000
+    },
+    "action": "manual_review",
+    "when": {
+      "field": "currency",
+      "operator": "eq",
+      "value": "GBP"
+    }
+  },
+  {
+    "rule_id": "DOCS-GBP",
+    "policy_reference": "POLICY-DOCS-04",
+    "description": "Above 2,000 GBP, provide source of funds",
+    "assertion": {
+      "field": "documents",
+      "operator": "contains_all",
+      "value": [
+        "source_of_funds"
+      ]
+    },
+    "action": "flag",
+    "when": {
+      "all": [
+        {
+          "field": "currency",
+          "operator": "eq",
+          "value": "GBP"
+        },
+        {
+          "field": "amount",
+          "operator": "gt",
+          "value": 2000
+        }
+      ]
+    },
+    "exception": {
+      "all": [
+        {
+          "field": "purpose",
+          "operator": "eq",
+          "value": "tuition"
+        },
+        {
+          "field": "documents",
+          "operator": "contains_all",
+          "value": [
+            "scholarship_letter",
+            "enrollment_letter"
+          ]
+        }
+      ]
+    },
+    "exception_reference": "POLICY-EXCEPTION-07"
+  },
+  {
+    "rule_id": "INVESTMENT-REVIEW",
+    "policy_reference": "POLICY-MANUAL-08",
+    "description": "Investment purpose requires manual review",
+    "assertion": {
+      "field": "purpose",
+      "operator": "ne",
+      "value": "investment"
+    },
+    "action": "manual_review"
+  }
+]

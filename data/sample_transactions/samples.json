@@ -1,0 +1,163 @@
+[
+  {
+    "id": "compliant",
+    "label": "01 \u00b7 Everyday transfer",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 50000,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "over-limit",
+    "label": "02 \u00b7 Transfer above the cap",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 1100000,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [
+        "source_of_funds"
+      ],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "missing-docs",
+    "label": "03 \u00b7 Supporting document missing",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 250000,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "unsupported",
+    "label": "04 \u00b7 Unsupported corridor",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "KP",
+      "amount": 50000,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "identity",
+    "label": "05 \u00b7 Identity not verified",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 50000,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": false,
+      "recipient_verified": true,
+      "documents": [],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "high-value",
+    "label": "06 \u00b7 Higher-value review",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 750000,
+      "currency": "INR",
+      "purpose": "business",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [
+        "invoice",
+        "source_of_funds"
+      ],
+      "customer_type": "business"
+    }
+  },
+  {
+    "id": "incomplete",
+    "label": "07 \u00b7 Information still needed",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": null,
+      "currency": "INR",
+      "purpose": "family_support",
+      "sender_kyc": true,
+      "recipient_verified": null,
+      "documents": [],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "exception",
+    "label": "08 \u00b7 Scholarship exception",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "SG",
+      "amount": 300000,
+      "currency": "INR",
+      "purpose": "tuition",
+      "sender_kyc": true,
+      "recipient_verified": true,
+      "documents": [
+        "scholarship_letter",
+        "enrollment_letter"
+      ],
+      "customer_type": "individual"
+    }
+  },
+  {
+    "id": "multiple",
+    "label": "09 \u00b7 Multiple conditions",
+    "transaction": {
+      "sender_name": "Aarav Demo",
+      "recipient_name": "Maya Example",
+      "sender_country": "IN",
+      "recipient_country": "IR",
+      "amount": 1200000,
+      "currency": "INR",
+      "purpose": "business",
+      "sender_kyc": false,
+      "recipient_verified": true,
+      "documents": [],
+      "customer_type": "business"
+    }
+  }
+]

@@ -1,0 +1,124 @@
+[
+  {
+    "policy_id": "POLICY-TRANSFER-01",
+    "name": "International transfer limits",
+    "version": "1.0",
+    "description": "All amounts are evaluated in their original currency. Fictional per-transfer caps are INR 1,000,000; USD 15,000; EUR 12,000; SGD 20,000; GBP 10,000. Amounts equal to a cap pass. No currency conversion is performed. Only these five currencies are supported.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-transfer-01.md",
+    "associated_rule_ids": [
+      "CURRENCY",
+      "CAP-INR",
+      "CAP-USD",
+      "CAP-EUR",
+      "CAP-SGD",
+      "CAP-GBP"
+    ]
+  },
+  {
+    "policy_id": "POLICY-VERIFY-02",
+    "name": "Identity and transaction completeness",
+    "version": "1.0",
+    "description": "Sender and recipient names, sender and recipient countries, amount, currency, purpose, customer type, verification statuses and the available-document list must be known. Sender KYC and recipient verification must both be complete. An unknown verification status needs information; a known incomplete status is a violation.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-verify-02.md",
+    "associated_rule_ids": [
+      "INFO-SENDER_NAME",
+      "INFO-RECIPIENT_NAME",
+      "INFO-SENDER_COUNTRY",
+      "INFO-RECIPIENT_COUNTRY",
+      "INFO-AMOUNT",
+      "INFO-CURRENCY",
+      "INFO-PURPOSE",
+      "INFO-CUSTOMER_TYPE",
+      "INFO-SENDER_KYC",
+      "INFO-RECIPIENT_VERIFIED",
+      "INFO-DOCUMENTS",
+      "KYC",
+      "RECIPIENT"
+    ]
+  },
+  {
+    "policy_id": "POLICY-COUNTRY-03",
+    "name": "Fictional corridors and restrictions",
+    "version": "1.0",
+    "description": "Supported sender and recipient locations are IN, SG, US, GB, DE, AU, CA, AE and JP. Transfers involving KP, IR or SY are restricted in this fictional demonstration. Any country outside the supported locations is flagged. These are invented bank policies, not statements about actual laws or sanctions.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-country-03.md",
+    "associated_rule_ids": [
+      "CORRIDOR-SENDER_COUNTRY",
+      "RESTRICT-SENDER_COUNTRY",
+      "CORRIDOR-RECIPIENT_COUNTRY",
+      "RESTRICT-RECIPIENT_COUNTRY"
+    ]
+  },
+  {
+    "policy_id": "POLICY-DOCS-04",
+    "name": "Supporting documentation",
+    "version": "1.0",
+    "description": "Transfers strictly above INR 200,000; USD 3,000; EUR 2,500; SGD 4,000; GBP 2,000 require source_of_funds. An explicitly empty document list establishes that a required document is absent. An unknown document list needs information. Business transactions also require an invoice regardless of value.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-docs-04.md",
+    "associated_rule_ids": [
+      "BUSINESS-INVOICE",
+      "DOCS-INR",
+      "DOCS-USD",
+      "DOCS-EUR",
+      "DOCS-SGD",
+      "DOCS-GBP"
+    ]
+  },
+  {
+    "policy_id": "POLICY-BUSINESS-05",
+    "name": "Customer and payment purpose",
+    "version": "1.0",
+    "description": "Customer type must be individual or business. Supported purposes are personal, family_support, tuition, medical, business and investment. A business customer must use purpose business and supply an invoice. Individual customers may use any supported purpose.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-business-05.md",
+    "associated_rule_ids": [
+      "PURPOSE",
+      "BUSINESS-PURPOSE"
+    ]
+  },
+  {
+    "policy_id": "POLICY-REVIEW-06",
+    "name": "Higher-value review",
+    "version": "1.0",
+    "description": "Transfers strictly above INR 500,000; USD 8,000; EUR 6,000; SGD 10,000; GBP 5,000 require manual review when no higher priority violation or missing information applies. This is an advisory assessment; no payment is executed.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-review-06.md",
+    "associated_rule_ids": [
+      "REVIEW-INR",
+      "REVIEW-USD",
+      "REVIEW-EUR",
+      "REVIEW-SGD",
+      "REVIEW-GBP"
+    ]
+  },
+  {
+    "policy_id": "POLICY-EXCEPTION-07",
+    "name": "Scholarship documentation exception",
+    "version": "1.0",
+    "description": "For purpose tuition, if both scholarship_letter and enrollment_letter are supplied, the source_of_funds requirement is waived. This exception does not waive transfer caps, identity verification, corridor checks, invoices or high-value review. Unknown exception facts must not be presumed true.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-exception-07.md",
+    "associated_rule_ids": [
+      "DOCS-INR",
+      "DOCS-USD",
+      "DOCS-EUR",
+      "DOCS-SGD",
+      "DOCS-GBP"
+    ]
+  },
+  {
+    "policy_id": "POLICY-MANUAL-08",
+    "name": "Investment and uncertain assessments",
+    "version": "1.0",
+    "description": "An investment payment requires manual compliance review. Overall precedence is FLAGGED, then NEEDS INFORMATION, then REVIEW REQUIRED, then PASS. PASS is possible only when all applicable mandatory requirements are resolved. Document retrieval and LLM text never override structured rules.",
+    "effective_date": "2026-01-01",
+    "source_document": "policy-manual-08.md",
+    "associated_rule_ids": [
+      "INVESTMENT-REVIEW"
+    ]
+  }
+]
